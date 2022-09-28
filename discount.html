@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Learn Discounts with Me</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1 class="display-3">Sai Karthik Malyala computes discounts</h1>
+    <br>
+
+    <div class="container border">
+        <form>
+            <br>
+            <div class="form-group">
+                <label for="form1_base_amount">Enter base amount</label>
+                <input type="number" id="form1_base_amount" name="form1_base_amount" value=20>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="form1_discount_percentage">Enter the discount percentage</label>
+                <input type="number" id="form1_discount_percentage" name="form1_discount_percentage" value="10">
+            </div>
+            <br>
+
+            <input type="button" onclick="discount()" value="Apply discount">
+        </form>
+        <br>
+    </div>
+    <br>
+
+    <div class="container border bg-secondary" style="padding-top: 10px; color: white;">
+        <p id="result">This text will be replaced</p>
+    </div>
+    <br>
+
+</body>
+
+<script>
+    function discount() {
+        baseValue = document.getElementById("form1_base_amount").value
+        discountPercentage = document.getElementById("form1_discount_percentage").value
+        result = ""
+        for(let i = 1; i <= 5; i++) {
+            result = result + "" + (i * baseValue - (i * baseValue * discountPercentage /100)) + " "
+        }
+
+        document.getElementById("result").innerHTML = "<b>Discounted amounts for base " + baseValue + " are " + result + "</b>   (discount was " + discountPercentage + ")"
+    }
+</script>
+
+</html>
