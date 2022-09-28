@@ -34,13 +34,34 @@
             <label for="check_resort">Resort</label><br>
 
             <input type="button" class="col-sm-3 btn-primary" onclick="selectVacation()" value="Select a vacation">
-            <br>
         </form>
+        <br>
     </div>
     <br>
 
     <div class="container border bg-secondary" style="padding-top: 10px; color: white;">
         <p id="result">This text will be replaced</p>
+    </div>
+    <br>
+
+    <div class="container border">
+        <br>
+        <form>
+            <div class="form-group">
+                <label for="form_city">Enter a city</label>
+                <input type="text" id="form_city" name="form_city" value="city">
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="form_price">Enter price</label>
+                <input type="text" id="form_price" name="form_price">
+            </div>
+            <br>
+
+            <input type="button" class="col-sm-3 btn-primary" onclick="updateVacation()" value="Update the vacation">
+        </form>
+        <br>
     </div>
     <br>
 
@@ -71,8 +92,15 @@
 
         document.getElementById("result").innerHTML = JSON.stringify(my_vacation)
     }
-    
 
+    function updateVacation() {
+        city = document.getElementById("form_city").value
+        price = document.getElementById("form_price").value
+        my_vacation['city'] = city
+        my_vacation['price'] = price
+
+        document.getElementById("result").innerHTML = JSON.stringify(my_vacation)
+    }
 </script>
 
 </html>
