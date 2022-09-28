@@ -69,6 +69,14 @@
             }
 
             document.getElementById("result").innerHTML = "Correct guesses are " + correct + " and incorrect guesses are " + wrong
+
+            if(wrong == 3) {
+                incorrectAlert()
+            }
+        }
+
+        function incorrectAlert() {
+            alert("Sorry, game over.")
         }
     </script>
 
