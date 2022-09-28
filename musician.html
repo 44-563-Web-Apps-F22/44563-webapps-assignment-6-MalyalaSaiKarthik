@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Learn Music with Me</title>
+    <header>Musician guess by Sai Karthik Malyala</header>
+</head>
+
+<body>
+
+    <h2>Getting input</h2>
+
+    <form>
+        <label for="form1_secret_musician_name">Enter the secret musician name</label>
+        <input type="password" id="form1_secret_musician_name" name="form1_secret_musician_name" value="John Lennon">
+        <br>
+
+        <label for="form1_guessed_musician_name">Guess the musician</label>
+        <input type="text" id="form1_guessed_musician_name" name="form1_guessed_musician_name"> <br>
+
+        <input type="button" onclick="checkGuess()" value="Check the guess">
+    </form>
+
+
+    <p id="result">This text will be replaced</p>
+
+    <script>
+        var correct = 0
+        var wrong = 0
+        function checkGuess() {
+            secretMusicianName = document.getElementById("form1_secret_musician_name").value
+            guessedMusicianName = document.getElementById("form1_guessed_musician_name").value
+            
+            if (secretMusicianName == guessedMusicianName) {
+                correct++
+                alert("You got it right")
+            } else {
+                wrong++
+                alert("Wrong Musician")
+            }
+
+            document.getElementById("result").innerHTML = "Correct guesses are " + correct + " and incorrect guesses are " + wrong
+        }
+    </script>
+
+</body>
+
+</html>
