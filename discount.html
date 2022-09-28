@@ -48,6 +48,24 @@
     </div>
     <br>
 
+    <div class="container border">
+        <form>
+            <input type="radio" id="times" name="operation" onclick="chooseOp()">
+            <label for="times">*</label><br>
+
+            <input type="radio" id="divide" name="operation" onclick="chooseOp()">
+            <label for="divide">/</label><br>
+
+            <input type="radio" id="exponent" name="operation" onclick="chooseOp()">
+            <label for="exponent">**</label><br>
+        </form>
+    </div>
+    <br>
+
+    <div class="container border bg-secondary" style="padding-top: 10px; color: white;">
+        <p id="radio_result">Results of Radio buttons will be shown here</p>
+    </div>
+
 </body>
 
 <script>
@@ -55,11 +73,29 @@
         baseValue = document.getElementById("form1_base_amount").value
         discountPercentage = document.getElementById("form1_discount_percentage").value
         result = ""
-        for(let i = 1; i <= 5; i++) {
-            result = result + "" + (i * baseValue - (i * baseValue * discountPercentage /100)) + " "
+        for (let i = 1; i <= 5; i++) {
+            result = result + "" + (i * baseValue - (i * baseValue * discountPercentage / 100)) + " "
         }
 
         document.getElementById("result").innerHTML = "<b>Discounted amounts for base " + baseValue + " are " + result + "</b>   (discount was " + discountPercentage + ")"
+    }
+</script>
+
+<script>
+    function chooseOp() {
+        baseValue = document.getElementById("form1_base_amount").value
+        discountPercentage = document.getElementById("form1_discount_percentage").value
+        result = 0
+
+        if (document.getElementById("times").checked == true) {
+            result = baseValue * discountPercentage
+        } else if (document.getElementById("divide").checked == true) {
+            result = baseValue / discountPercentage
+        } else if (document.getElementById("exponent").checked == true) {
+            result = baseValue ** discountPercentage
+        }
+
+        document.getElementById("radio_result").innerHTML = "Times of " + baseValue + " and " + discountPercentage + " is " + result
     }
 </script>
 
