@@ -3,26 +3,57 @@
 
 <head>
     <title>Learn Music with Me</title>
-    <header>Musician guess by Sai Karthik Malyala</header>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <h2>Getting input</h2>
+    <h1 class="display-3">Musician guess by Sai Karthik Malyala</h1>
+    <br>
 
-    <form>
-        <label for="form1_secret_musician_name">Enter the secret musician name</label>
-        <input type="password" id="form1_secret_musician_name" name="form1_secret_musician_name" value="John Lennon">
+    <div class="container border">
+        <form>
+            <br>
+            <div class="form-group">
+                <label for="form1_secret_musician_name">Enter the secret musician name</label>
+                <input type="password" id="form1_secret_musician_name" name="form1_secret_musician_name"
+                    value="John Lennon">
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="form1_guessed_musician_name">Guess the musician</label>
+                <input type="text" id="form1_guessed_musician_name" name="form1_guessed_musician_name">
+            </div>
+            <br>
+
+            <input type="button" onclick="checkGuess()" value="Check the guess">
+        </form>
         <br>
+    </div>
+    
+    <br>
 
-        <label for="form1_guessed_musician_name">Guess the musician</label>
-        <input type="text" id="form1_guessed_musician_name" name="form1_guessed_musician_name"> <br>
+    <div class="container border bg-secondary" style="padding-top: 10px; color: white;">
+        <p id="result">This text will be replaced</p>
+    </div>
 
-        <input type="button" onclick="checkGuess()" value="Check the guess">
-    </form>
+    <br>
 
-
-    <p id="result">This text will be replaced</p>
+    <div class="container">
+        <img id="insert_image" src="./image/Opodiphthera_eucalypti_male.jpg" alt="Moth" height="100" width="100" onclick="swapImage()">
+    </div>
 
     <script>
         var correct = 0
@@ -30,7 +61,7 @@
         function checkGuess() {
             secretMusicianName = document.getElementById("form1_secret_musician_name").value
             guessedMusicianName = document.getElementById("form1_guessed_musician_name").value
-            
+
             if (secretMusicianName == guessedMusicianName) {
                 correct++
                 alert("You got it right")
@@ -40,6 +71,26 @@
             }
 
             document.getElementById("result").innerHTML = "Correct guesses are " + correct + " and incorrect guesses are " + wrong
+        }
+    </script>
+
+    <script>
+        var useImage = 1
+        function swapImage() {
+            switch(useImage){
+                case 1:
+                    document.getElementById("insert_image").src = "./image/Ant.jpg"
+                    useImage = 2
+                    break
+                case 2:
+                document.getElementById("insert_image").src = "./image/Green_Lacewings.jpg"
+                    useImage = 3
+                    break
+                case 3:
+                document.getElementById("insert_image").src = "./image/Opodiphthera_eucalypti_male.jpg"
+                    useImage = 1
+                    break
+            }
         }
     </script>
 
